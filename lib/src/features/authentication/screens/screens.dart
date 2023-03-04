@@ -1,3 +1,3 @@
-import 'login.dart';
 
+export 'sign_up.dart';
 export 'login.dart';
