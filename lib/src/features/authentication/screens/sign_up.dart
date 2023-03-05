@@ -22,14 +22,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
       // resizeToAvoidBottomInset: false,
       body: Stack(
         children:   [
-          Positioned(top:0 ,bottom: MediaQuery.of(context).size.height * .5, child: const Image(image: AssetImage("assets/images/image_container.png"),alignment: Alignment.bottomRight, fit: BoxFit.fitWidth, )),
+          Positioned(top:0 ,bottom: MediaQuery.of(context).size.height * .3, child: const Image(image: AssetImage("assets/images/image_container.png"),alignment: Alignment.bottomRight, fit: BoxFit.fitWidth, )),
           Positioned(
             bottom: 0,
             left: 0,
             right: 0,
             child: Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
               decoration: const BoxDecoration(
                   color: Colors.white,
                   boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5, blurStyle: BlurStyle.normal, spreadRadius: 1),],
@@ -40,8 +40,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 shrinkWrap: true,
                 keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                 children: [
-                  Center(child: Text("SignUp Page", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30))),
-                  SizedBox(height: 30),
+                  Center(child: Text("Create an Account.", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30, color: Palette.gradient1))),
+                  SizedBox(height: 20),
                   Form(
                       key: _formKey,
                       child: Column(
