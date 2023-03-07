@@ -12,10 +12,12 @@ class AddressBook extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Address Book',
       theme: ThemeData(
         fontFamily: "Inter",
         primarySwatch: Colors.purple,
+        // colorScheme: ColorScheme.fromSwatch(primarySwatch:Colors.purple).copyWith(secondary: Colors.red)
       ),
       home: const SignUpScreen(),
     );

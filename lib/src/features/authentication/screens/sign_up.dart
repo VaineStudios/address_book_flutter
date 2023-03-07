@@ -19,12 +19,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: Container(
 
               height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
-                image: DecorationImage( image: AssetImage("assets/images/image_container.png"), fit:BoxFit.cover,scale: 1.0,alignment: Alignment.bottomCenter)),
+                image: DecorationImage( image: AssetImage("assets/images/image_container_2.png"), fit:BoxFit.cover,scale: 1.0,alignment: Alignment.bottomCenter)),
               child:Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
@@ -63,7 +63,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           maxLines: 1,
                                           decoration: const InputDecoration(
                                               prefixIcon: Icon(Icons.person),
-                                              label: Text("First Name")
+                                              label: Text("First Name"),
+                                            enabledBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Colors.black)
+                                            ),
                                           ),
                                         )),
                                         SizedBox(width: 20.0,),
@@ -78,9 +81,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           },
 
                                           maxLines: 1,
+
                                           decoration: const InputDecoration(
                                               prefixIcon: Icon(Icons.person),
-                                              label: Text("Last Name")
+                                              label: Text("Last Name"),
+                                            enabledBorder: UnderlineInputBorder(
+                                                borderSide: BorderSide(color: Colors.black)
+                                            ),
                                           ),
                                         ),)
                                       ],
@@ -99,7 +106,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       maxLines: 1,
                                       decoration: const InputDecoration(
                                           prefixIcon: Icon(Icons.email),
-                                          label: Text("Email")
+                                          label: Text("Email"),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.black)
+                                        ),
                                       ),
                                     ),
                                     TextFormField(
@@ -115,7 +125,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       maxLines: 1,
                                       decoration: const InputDecoration(
                                           prefixIcon: Icon(Icons.phone),
-                                          label: Text("Mobile Number")
+                                          label: Text("Mobile Number"),
+                                          enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.black)
+                                          ),
                                       ),
                                     ),
                                     TextFormField(
@@ -131,7 +144,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       maxLines: 1,
                                       decoration: const InputDecoration(
                                           prefixIcon: Icon(Icons.lock),
-                                          label: Text("Password")
+                                          label: Text("Password"),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.black)
+                                        ),
                                       ),
                                     ),
                                     TextFormField(
@@ -147,7 +163,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                       maxLines: 1,
                                       decoration: const InputDecoration(
                                           prefixIcon: Icon(Icons.lock_outline),
-                                          label: Text("Confirm Password")
+                                          label: Text("Confirm Password"),
+                                        enabledBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(color: Colors.black)
+                                        ),
                                       ),
                                     ),
                                   ],
