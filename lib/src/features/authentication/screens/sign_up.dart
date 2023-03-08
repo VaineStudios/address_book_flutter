@@ -61,7 +61,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                           Expanded(child: buildTextFormField("Last Name"),)
                                         ],
                                       ),
-                                      buildTextFormField("Email", iconData: Icons.email_outlined),
+                                      buildTextFormField("Email", iconData: Icons.email_outlined, inputType: TextInputType.emailAddress),
                                       buildTextFormField("Mobile Number", iconData: Icons.phone_outlined),
                                       buildTextFormField("Password", obscureText: true, iconData: Icons.lock_outline),
                                       buildTextFormField("Confirm Password", obscureText: true, iconData: Icons.lock_outline),
@@ -94,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   }
 
-  TextFormField buildTextFormField(String label, { Color enabledBorderColor = Colors.black, Color focusedBorderColor = Colors.purple, bool obscureText = false, IconData iconData = Icons.person_outline} ) {
+  TextFormField buildTextFormField(String label, { Color enabledBorderColor = Colors.black, Color focusedBorderColor = Colors.purple, bool obscureText = false, IconData iconData = Icons.person_outline, TextInputType inputType= TextInputType.text} ) {
     return TextFormField(
         // The validator receives the text that the user has entered.
         validator: (value) {
@@ -103,15 +103,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
           }
           return null;
         },
-
+        keyboardType: inputType,
         maxLines: 1,
         obscureText: obscureText,
         decoration: InputDecoration(
             prefixIcon: Icon(iconData),
             label: Text(label),
-          enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: enabledBorderColor)
-          ),
+
         ),
       );
   }

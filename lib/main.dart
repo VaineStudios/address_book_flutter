@@ -17,7 +17,13 @@ class AddressBook extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Inter",
         primarySwatch: Colors.purple,
-        // colorScheme: ColorScheme.fromSwatch(primarySwatch:Colors.purple).copyWith(secondary: Colors.red)
+        inputDecorationTheme: const InputDecorationTheme(
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.purple)),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Colors.black)),
+          hintStyle: TextStyle(color: Colors.black12),
+        ),
       ),
       home: const SignUpScreen(),
     );
