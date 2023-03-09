@@ -1,3 +1,4 @@
+import 'package:address_book/src/features/addresses/screens/screens.dart';
 import 'package:address_book/src/features/authentication/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class AddressBook extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.black12),
         ),
       ),
-      home: const SignUpScreen(),
+      home: const AddressListing(),
     );
   }
 }
