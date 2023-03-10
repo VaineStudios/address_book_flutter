@@ -1,4 +1,5 @@
 import 'package:address_book/src/features/addresses/models/address_model.dart';
+import 'package:address_book/src/features/addresses/screens/screens.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -72,7 +73,30 @@ class _AddressListingState extends State<AddressListing> {
 
                         ),
 
-                        onPressed: (){},
+                        onPressed: (){
+                          showDialog(
+                              context: context,
+                              builder: (_){
+                            return AlertDialog(
+                              content: RichText(
+                                textAlign: TextAlign.center,
+                                  text: TextSpan(
+
+                                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.normal, color: Colors.black87),
+
+                                      children: [
+                                        const TextSpan(text: "Are you sure you want to delete your "),
+                                        TextSpan(style: const TextStyle(fontWeight: FontWeight.bold), text: address.address_1),
+                                        const TextSpan(text:" address?")
+                                      ],),
+                                ),
+                                actions: [
+                                TextButton(onPressed: (){Navigator.pop(context);}, child:const Text("No")),
+                                TextButton(onPressed: (){}, child:const Text("Yes")),
+                              ],
+                            );
+                          });
+                        },
                         child: Text("Delete", style: TextStyle(color: Palette.gradient2),)
                     ),
 
