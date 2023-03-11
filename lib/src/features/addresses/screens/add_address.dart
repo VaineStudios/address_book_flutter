@@ -16,6 +16,7 @@ class _AddAddressState extends State<AddAddress> {
   //Key to identify and manipulate form.
   final GlobalKey _formKey = GlobalKey<FormState>();
   String _dropdownVal = Parish.sampleParishes[0].id;
+  bool _manuallyAddAddress = false;
 
 
   @override
@@ -53,86 +54,109 @@ class _AddAddressState extends State<AddAddress> {
 
                 ),
               ),
-              SizedBox(height:5),
-              Align(alignment:Alignment.bottomLeft, child: GestureDetector(onTap: (){}, child: const Text("Enter Address Manually", style: TextStyle(color: Colors.blueAccent, fontSize: 12, fontWeight: FontWeight.bold),))),
-              SizedBox(height:10),
-
-              TextFormField(
-
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-
-                maxLines: 1,
-                decoration: const InputDecoration(
-                    // prefixIcon: Icon(Icons.lock_outline),
-                    label: Text("Address Line 1"),
-                    contentPadding: EdgeInsets.zero
-
-                ),
-              ),
-              SizedBox(height:10),
-
-              TextFormField(
-
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-
-                maxLines: 1,
-                decoration: const InputDecoration(
-                  // prefixIcon: Icon(Icons.lock_outline),
-                  label: Text("Address Line 2"),
-                    contentPadding: EdgeInsets.zero
-
-                ),
-              ),
-              SizedBox(height:10),
-
-              TextFormField(
-
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-
-                maxLines: 1,
-                decoration: const InputDecoration(
-                  // prefixIcon: Icon(Icons.lock_outline),
-                  label: Text("City"),
-                    contentPadding: EdgeInsets.zero
-
-                ),
-              ),
-              SizedBox(height:10),
-
-              DropdownButtonFormField(
-                isExpanded: true,
-                items: Parish.sampleParishes.map((parish){return DropdownMenuItem(child: Text(parish.parishName), value: parish.id,);}).toList(),
-                onChanged: (value){
-                  _dropdownVal = value!;
-                  setState(() {});
-                },
-                value: _dropdownVal
-
-              ),
+              const SizedBox(height:10),
+              Align(
+                  alignment:Alignment.bottomLeft,
+                  child: GestureDetector(
+                      onTap: (){
+                        _manuallyAddAddress = !_manuallyAddAddress;
+                        setState(() {});
+                        },
+                      child: const Text("Enter Address Manually", style: TextStyle(color: Colors.blueAccent, fontSize: 12, fontWeight: FontWeight.bold),))),
+              ...showManualAddressFields(),
+              SizedBox(height: 10),
+              Align(alignment:Alignment.centerLeft, child: Text("Set as Default Address ")),
               SizedBox(height: 20),
+              
               RoundedButtonWidget(buttonText: "Save Address", width: double.infinity, onpressed: (){})
             ],
           )
         )
       ),
     );
+
+  }
+  /*
+  * Shows manual AddressFields if manuallyAddAddress is set to true, if not returns a shrinked sizedbox
+  * */
+  showManualAddressFields(){
+    if(_manuallyAddAddress){
+      return [
+        SizedBox(height:10),
+        TextFormField(
+
+          // The validator receives the text that the user has entered.
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
+
+          maxLines: 1,
+          decoration: const InputDecoration(
+            // prefixIcon: Icon(Icons.lock_outline),
+              label: Text("Address Line 1"),
+              contentPadding: EdgeInsets.zero
+
+          ),
+        ),
+        SizedBox(height:10),
+
+        TextFormField(
+
+          // The validator receives the text that the user has entered.
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
+
+          maxLines: 1,
+          decoration: const InputDecoration(
+            // prefixIcon: Icon(Icons.lock_outline),
+              label: Text("Address Line 2"),
+              contentPadding: EdgeInsets.zero
+
+          ),
+        ),
+        SizedBox(height:10),
+
+        TextFormField(
+
+          // The validator receives the text that the user has entered.
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
+
+          maxLines: 1,
+          decoration: const InputDecoration(
+            // prefixIcon: Icon(Icons.lock_outline),
+              label: Text("City"),
+              contentPadding: EdgeInsets.zero
+
+          ),
+        ),
+        SizedBox(height:10),
+
+        DropdownButtonFormField(
+
+            isExpanded: true,
+            items: Parish.sampleParishes.map((parish){return DropdownMenuItem(child: Text(parish.parishName), value: parish.id,);}).toList(),
+            onChanged: (value){
+              _dropdownVal = value!;
+              setState(() {});
+            },
+            value: _dropdownVal
+
+        ),];
+    }else{
+      return [SizedBox.shrink()];
+    }
+
   }
 }
