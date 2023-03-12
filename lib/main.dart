@@ -1,4 +1,4 @@
-import 'package:address_book/src/features/addresses/screens/screens.dart';
+import 'package:address_book/src/features/address/screens/screens.dart';
 import 'package:address_book/src/features/authentication/screens/screens.dart';
 import 'package:flutter/material.dart';
 

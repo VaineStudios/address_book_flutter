@@ -1,5 +1,5 @@
-import 'package:address_book/src/features/addresses/models/address_model.dart';
-import 'package:address_book/src/features/addresses/screens/screens.dart';
+import 'package:address_book/src/features/address/models/address_model.dart';
+import 'package:address_book/src/features/address/screens/screens.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 

@@ -2,7 +2,7 @@ import 'package:address_book/src/shared/shared.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
-import 'package:address_book/src/features/addresses/models/models.dart';
+import 'package:address_book/src/features/address/models/models.dart';
 
 
 class AddAddress extends StatefulWidget {
