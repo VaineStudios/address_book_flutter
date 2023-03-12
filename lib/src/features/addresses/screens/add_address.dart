@@ -2,7 +2,7 @@ import 'package:address_book/src/shared/shared.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
-import '../models/models.dart';
+import 'package:address_book/src/features/addresses/models/models.dart';
 
 
 class AddAddress extends StatefulWidget {
@@ -66,6 +66,8 @@ class _AddAddressState extends State<AddAddress> {
               ...showManualAddressFields(),
               SizedBox(height: 10),
               Align(alignment:Alignment.centerLeft, child: Text("Set as Default Address ")),
+              SizedBox(height:10),
+              ToggleSwitch(),
               SizedBox(height: 20),
               
               RoundedButtonWidget(buttonText: "Save Address", width: double.infinity, onpressed: (){})
@@ -141,6 +143,7 @@ class _AddAddressState extends State<AddAddress> {
 
           ),
         ),
+
         SizedBox(height:10),
 
         DropdownButtonFormField(
