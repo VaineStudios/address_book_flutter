@@ -17,6 +17,7 @@ class _AddAddressState extends State<AddAddress> {
   final GlobalKey _formKey = GlobalKey<FormState>();
   String _dropdownVal = Parish.sampleParishes[0].id;
   bool _manuallyAddAddress = false;
+  bool _isDefault = false;
 
 
   @override
@@ -65,9 +66,19 @@ class _AddAddressState extends State<AddAddress> {
                       child: const Text("Enter Address Manually", style: TextStyle(color: Colors.blueAccent, fontSize: 12, fontWeight: FontWeight.bold),))),
               ...showManualAddressFields(),
               SizedBox(height: 10),
-              Align(alignment:Alignment.centerLeft, child: Text("Set as Default Address ")),
-              SizedBox(height:10),
-              ToggleSwitch(),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children:[
+                    Text("Set as Default Address "),
+                    GestureDetector(
+                      onTap: (){
+                        setState(() {
+                          _isDefault = !_isDefault;
+                        });
+                      },
+                        child: ToggleSwitch(activeColor: Palette.gradient2, isActive: _isDefault,)),
+                  ]),
+
               SizedBox(height: 20),
               
               RoundedButtonWidget(buttonText: "Save Address", width: double.infinity, onpressed: (){})
