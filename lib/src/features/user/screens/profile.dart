@@ -1,4 +1,5 @@
 import 'package:address_book/src/features/user/models/models.dart';
+import 'package:address_book/src/features/user/screens/screens.dart';
 import 'package:address_book/src/shared/rounded_button.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,9 @@ class ProfileScreen extends StatelessWidget {
                           Positioned(
                               bottom: -50,
                               left: 20,
-                              child: CircleImage(imageProvider: AssetImage("assets/images/image_container.png"),radius: 50,)
+                              child: Hero(
+                                  tag: "profile_image",
+                                  child: CircleImage(imageProvider: AssetImage("assets/images/image_container.png"),radius: 50,),)
                           ),
                           Positioned(
                               bottom: -50,
@@ -83,7 +86,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   )
               ),
-              RoundedButtonWidget(buttonText: "Update Profile", width: double.infinity, onpressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=> Container())))
+              RoundedButtonWidget(buttonText: "Edit Profile", width: double.infinity, onpressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=> const UpdateProfileScreen())))
             ]
         )
 
