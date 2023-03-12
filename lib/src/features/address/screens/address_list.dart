@@ -42,19 +42,20 @@ class _AddressListingState extends State<AddressListing> {
       ),
 
       floatingActionButton: OpenContainer(  
-        closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+        closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
 
         transitionDuration: Duration(milliseconds: 500),
         transitionType: ContainerTransitionType.fade,
         closedBuilder: (BuildContext context, VoidCallback openContainer){
           return FloatingActionButton(
+              elevation: 0,
               backgroundColor: Colors.white,
               onPressed: openContainer,
-              child: Icon(Icons.add, color: Palette.gradient2)
+              child: const Icon(Icons.add, color: Palette.gradient2)
           );
         },
         openBuilder: (BuildContext context, VoidCallback _ ){
-          return AddAddress();
+          return const AddAddress();
         },
       ),
     );
