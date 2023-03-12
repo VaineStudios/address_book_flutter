@@ -1,6 +1,7 @@
 import 'package:address_book/src/features/address/models/address_model.dart';
 import 'package:address_book/src/features/address/screens/screens.dart';
 import 'package:address_book/src/features/user/screens/screens.dart';
+import 'package:animations/animations.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -40,12 +41,21 @@ class _AddressListingState extends State<AddressListing> {
         )
       ),
 
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.white,
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> const AddAddress()));
+      floatingActionButton: OpenContainer(  
+        closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+
+        transitionDuration: Duration(milliseconds: 500),
+        transitionType: ContainerTransitionType.fade,
+        closedBuilder: (BuildContext context, VoidCallback openContainer){
+          return FloatingActionButton(
+              backgroundColor: Colors.white,
+              onPressed: openContainer,
+              child: Icon(Icons.add, color: Palette.gradient2)
+          );
         },
-        child: Icon(Icons.add, color: Palette.gradient2)
+        openBuilder: (BuildContext context, VoidCallback _ ){
+          return AddAddress();
+        },
       ),
     );
   }
