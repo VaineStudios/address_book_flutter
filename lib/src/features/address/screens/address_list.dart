@@ -16,8 +16,13 @@ class _AddressListingState extends State<AddressListing> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+
         elevation: 1,
         title: Text("Addresses", style: TextStyle(color: Palette.primary),),
+        actions: [
+          IconButton(onPressed: (){}, icon: CircleAvatar(backgroundImage: AssetImage("assets/images/image_container.png"),)),
+          SizedBox(width:20),
+        ],
       ),
       body: SafeArea(
         child: ListView.builder(
