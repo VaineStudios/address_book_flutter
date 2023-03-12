@@ -1,6 +1,6 @@
 import 'package:address_book/src/features/address/models/address_model.dart';
 import 'package:address_book/src/features/address/screens/screens.dart';
-import 'package:address_book/src/features/user/screens/profile.dart';
+import 'package:address_book/src/features/user/screens/screens.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class _AddressListingState extends State<AddressListing> {
           IconButton(onPressed: (){
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context)=> ProfileScreen())
+                MaterialPageRoute(builder: (context)=> const ProfileScreen())
             );
             }, icon: CircleAvatar(backgroundImage: AssetImage("assets/images/image_container.png"),)),
           SizedBox(width:20),

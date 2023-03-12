@@ -2,6 +2,7 @@ import 'package:address_book/src/features/user/models/models.dart';
 import 'package:address_book/src/shared/rounded_button.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:address_book/src/features/user/widgets/widgets.dart';
 
 
 class ProfileScreen extends StatelessWidget {
@@ -14,7 +15,7 @@ class ProfileScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: IconButton(onPressed: ()=> Navigator.pop(context), icon: Icon(Icons.arrow_back_rounded, size: 30, color: Colors.black),),
+          leading: IconButton(onPressed: ()=> Navigator.pop(context), icon: Icon(Icons.arrow_back_rounded, size: 30,),),
         ),
         body: Column(
             children: [
@@ -40,10 +41,10 @@ class ProfileScreen extends StatelessWidget {
                             ),
 
                           ),
-                          const Positioned(
+                          Positioned(
                               bottom: -50,
                               left: 20,
-                              child: CircleAvatar(backgroundImage: AssetImage("assets/images/image_container.png"),minRadius: 50,)
+                              child: CircleImage(imageProvider: AssetImage("assets/images/image_container.png"),radius: 50,)
                           ),
                           Positioned(
                               bottom: -50,
