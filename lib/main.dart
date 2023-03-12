@@ -26,7 +26,7 @@ class AddressBook extends StatelessWidget {
           hintStyle: TextStyle(color: Colors.black12),
         ),
       ),
-      home: const AddAddress(),
+      home: const AddressListing(),
     );
   }
 }

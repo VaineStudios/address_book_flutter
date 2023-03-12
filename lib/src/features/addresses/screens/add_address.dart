@@ -27,7 +27,7 @@ class _AddAddressState extends State<AddAddress> {
         elevation: 1.0,
         title: Text("Create Address", style: TextStyle(color: Palette.primary),),
         backgroundColor: Colors.white,
-        leading: Icon(Icons.arrow_back_rounded, color: Colors.black, size: 30,),
+        leading: IconButton(onPressed: (){Navigator.pop(context);},icon: Icon(Icons.arrow_back_rounded, color: Colors.black, size: 30,)),
       ),
       body: SingleChildScrollView(
         child: Container(

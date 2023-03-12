@@ -31,7 +31,9 @@ class _AddressListingState extends State<AddressListing> {
 
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.white,
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> const AddAddress()));
+        },
         child: Icon(Icons.add, color: Palette.gradient2)
       ),
     );
