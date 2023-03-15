@@ -1,17 +1,17 @@
-import 'package:address_book/src/shared/shared.dart';
 import 'package:address_book/src/utilities/palette.dart';
 import 'package:flutter/material.dart';
 
-import 'package:address_book/src/features/address/models/models.dart';
+import '../../../shared/shared.dart';
+import '../models/models.dart';
 
+class EditAddress extends StatefulWidget {
+  const EditAddress({Key? key}) : super(key: key);
 
-class AddAddress extends StatefulWidget {
-  const AddAddress({Key? key}) : super(key: key);
   @override
-  State<AddAddress> createState() => _AddAddressState();
+  State<EditAddress> createState() => _EditAddressState();
 }
 
-class _AddAddressState extends State<AddAddress> {
+class _EditAddressState extends State<EditAddress> {
 
   //Key to identify and manipulate form.
   final GlobalKey _formKey = GlobalKey<FormState>();
@@ -19,75 +19,75 @@ class _AddAddressState extends State<AddAddress> {
   bool _manuallyAddAddress = false;
   bool _isDefault = false;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1.0,
-        title: Text("Create Address", style: TextStyle(color: Palette.primary),),
+        leading: IconButton(onPressed: (){Navigator.pop(context);}, icon: Icon(Icons.arrow_back_rounded), iconSize: 26, color:Palette.primary),
         backgroundColor: Colors.white,
-        leading: IconButton(onPressed: (){Navigator.pop(context);},icon: Icon(Icons.arrow_back_rounded, color: Colors.black, size: 30,)),
+        title: Text("Edit Address", style: TextStyle(color: Palette.primary)),
+        elevation: 1,
+
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          key: _formKey,
-          child: Column(
-            children: [
+          child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              key: _formKey,
+              child: Column(
+                children: [
 
-              TextFormField(
+                  TextFormField(
 
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+                    // The validator receives the text that the user has entered.
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter some text';
+                      }
+                      return null;
+                    },
 
-                maxLines: 1,
-                decoration: const InputDecoration(
-                  label: Text("Find Address"),
-                  contentPadding: EdgeInsets.zero
+                    maxLines: 1,
+                    decoration: const InputDecoration(
+                        label: Text("Find Address"),
+                        contentPadding: EdgeInsets.zero
 
 
 
-                ),
-              ),
-              const SizedBox(height:10),
-              Align(
-                  alignment:Alignment.bottomLeft,
-                  child: GestureDetector(
-                      onTap: (){
-                        _manuallyAddAddress = !_manuallyAddAddress;
-                        setState(() {});
-                        },
-                      child: const Text("Enter Address Manually", style: TextStyle(color: Colors.blueAccent, fontSize: 12, fontWeight: FontWeight.bold),))),
-              ...showManualAddressFields(),
-              SizedBox(height: 10),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children:[
-                    Text("Set as Default Address "),
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          _isDefault = !_isDefault;
-                        });
-                      },
-                        child: ToggleSwitch(activeColor: Palette.gradient2, isActive: _isDefault,)),
-                  ]),
+                    ),
+                  ),
+                  const SizedBox(height:10),
+                  Align(
+                      alignment:Alignment.bottomLeft,
+                      child: GestureDetector(
+                          onTap: (){
+                            _manuallyAddAddress = !_manuallyAddAddress;
+                            setState(() {});
+                          },
+                          child: const Text("Enter Address Manually", style: TextStyle(color: Colors.blueAccent, fontSize: 12, fontWeight: FontWeight.bold),))),
+                  ...showManualAddressFields(),
+                  SizedBox(height: 10),
+                  Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:[
+                        Text("Set as Default Address "),
+                        GestureDetector(
+                            onTap: (){
+                              setState(() {
+                                _isDefault = !_isDefault;
+                              });
+                            },
+                            child: ToggleSwitch(activeColor: Palette.gradient2, isActive: _isDefault,)),
+                      ]),
 
-              SizedBox(height: 20),
-              
-              RoundedButtonWidget(buttonText: "Save Address", width: double.infinity, onpressed: (){})
-            ],
+                  SizedBox(height: 20),
+
+                  RoundedButtonWidget(buttonText: "Save Address", width: double.infinity, onpressed: (){})
+                ],
+              )
           )
-        )
-      ),
-    );
+      )
 
+    );
   }
   /*
   * Shows manual AddressFields if manuallyAddAddress is set to true, if not returns a shrinked sizedbox

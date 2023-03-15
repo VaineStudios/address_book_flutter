@@ -1,4 +1,4 @@
-import 'package:address_book/src/features/address/models/address_model.dart';
+import 'package:address_book/src/features/address/models/models.dart';
 import 'package:address_book/src/features/address/screens/screens.dart';
 import 'package:address_book/src/features/user/screens/screens.dart';
 import 'package:animations/animations.dart';
@@ -85,7 +85,7 @@ class _AddressListingState extends State<AddressListing> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     TextButton(
-                        onPressed: (){},
+                        onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> const EditAddress())),
                         style: TextButton.styleFrom(
                             tapTargetSize: MaterialTapTargetSize.shrinkWrap
                         ),
