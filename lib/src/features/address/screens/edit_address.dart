@@ -15,6 +15,10 @@ class _EditAddressState extends State<EditAddress> {
 
   //Key to identify and manipulate form.
   final GlobalKey _formKey = GlobalKey<FormState>();
+  TextEditingController address_1_ctrl = TextEditingController();
+  TextEditingController address_2_ctrl = TextEditingController();
+  TextEditingController city_ctrl = TextEditingController();
+
   String _dropdownVal = Parish.sampleParishes[0].id;
   bool _manuallyAddAddress = false;
   bool _isDefault = false;
@@ -105,7 +109,7 @@ class _EditAddressState extends State<EditAddress> {
             }
             return null;
           },
-
+          controller: address_1_ctrl,
           maxLines: 1,
           decoration: const InputDecoration(
             // prefixIcon: Icon(Icons.lock_outline),
@@ -125,7 +129,7 @@ class _EditAddressState extends State<EditAddress> {
             }
             return null;
           },
-
+          controller: address_2_ctrl,
           maxLines: 1,
           decoration: const InputDecoration(
             // prefixIcon: Icon(Icons.lock_outline),
@@ -145,7 +149,7 @@ class _EditAddressState extends State<EditAddress> {
             }
             return null;
           },
-
+          controller: city_ctrl,
           maxLines: 1,
           decoration: const InputDecoration(
             // prefixIcon: Icon(Icons.lock_outline),
@@ -158,7 +162,6 @@ class _EditAddressState extends State<EditAddress> {
         SizedBox(height:10),
 
         DropdownButtonFormField(
-
             isExpanded: true,
             items: Parish.sampleParishes.map((parish){return DropdownMenuItem(child: Text(parish.parishName), value: parish.id,);}).toList(),
             onChanged: (value){
