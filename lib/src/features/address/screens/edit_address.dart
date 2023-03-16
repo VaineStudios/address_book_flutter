@@ -19,9 +19,19 @@ class _EditAddressState extends State<EditAddress> {
   TextEditingController address_2_ctrl = TextEditingController();
   TextEditingController city_ctrl = TextEditingController();
 
-  String _dropdownVal = Parish.sampleParishes[0].id;
+  String _parishVal = Parish.sampleParishes[0].id;
   bool _manuallyAddAddress = false;
   bool _isDefault = false;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    address_1_ctrl.text = Address.addressSample[0].address_1;
+    address_2_ctrl.text = Address.addressSample[0].address_2;
+    city_ctrl.text = Address.addressSample[0].city;
+    _parishVal = Address.addressSample[0].parish;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,10 +175,10 @@ class _EditAddressState extends State<EditAddress> {
             isExpanded: true,
             items: Parish.sampleParishes.map((parish){return DropdownMenuItem(child: Text(parish.parishName), value: parish.id,);}).toList(),
             onChanged: (value){
-              _dropdownVal = value!;
+              _parishVal = value!;
               setState(() {});
             },
-            value: _dropdownVal
+            value: _parishVal
 
         ),];
     }else{
